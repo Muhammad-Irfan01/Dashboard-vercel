@@ -1,6 +1,6 @@
 import React from "react";
 import "./Miguel.css";
-import bioMi from "../images/BioMiguel.webp";
+import bioMi from "../images/bioMiguel.webp";
 import Bmiguel from "../images/Mblog.webp" 
 import mprints from "../images/mprints.webp"
 const Bio = () => {
