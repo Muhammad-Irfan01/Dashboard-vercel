@@ -34,6 +34,10 @@ const columnsData = [
   "shipping_method",
 ];
 
+interface Order {
+    [key: string]: string | number | null;
+}
+
 const Order = () => {
   const [ordrs, setOrdrs] = useState([]);
   const [visibleColumns, setVisibleColumns] = useState(
@@ -365,7 +369,7 @@ const Order = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {ordrs.map((order) => (
+                    {ordrs.map((order:Order) => (
                       <tr key={order}>
                         {columnsData.map((column, index) =>
                           visibleColumns[index] && (
