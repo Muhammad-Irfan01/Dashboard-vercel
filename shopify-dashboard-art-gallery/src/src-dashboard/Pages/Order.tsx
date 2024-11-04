@@ -59,8 +59,8 @@ const Order = () => {
   }, []);
 
   useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (dropdownRf.current && !dropdownRf.current.contains(event.target)) {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (dropdownRf.current && !dropdownRf.current.contains(event.target as Node)) {
         setDropdownOpen(false);
       }
     };
@@ -69,7 +69,7 @@ const Order = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
 
-  const handleCheckboxChange = (index) => {
+  const handleCheckboxChange = (index:number) => {
     const newVisibleColumns = [...visibleColumns];
 
     if (newVisibleColumns[index]) {
@@ -370,7 +370,7 @@ const Order = () => {
                         {columnsData.map((column, index) =>
                           visibleColumns[index] && (
                             <td key={index} className="border px-4 py-2">
-                              {order[column] !== null ? order[column].toString() : "N/A"}
+                              {order[column] !== null ? order[column]?.toString() : ""}
                             </td>
                           )
                         )}
