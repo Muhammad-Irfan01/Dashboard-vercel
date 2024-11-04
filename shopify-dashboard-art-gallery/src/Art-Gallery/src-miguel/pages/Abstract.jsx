@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import abs1 from "../images/abstract/abs1.webp";
-import abs2 from "../images/abstract/abs2.webp";
+import abs2 from "../images/abstract/Abs2.webp";
 import abs3 from "../images/abstract/abs3.webp";
 import abs4 from "../images/abstract/abs4.webp";
 import abs5 from "../images/abstract/abs5.webp";
