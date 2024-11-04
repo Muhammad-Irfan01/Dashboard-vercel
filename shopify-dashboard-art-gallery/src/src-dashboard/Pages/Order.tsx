@@ -370,7 +370,7 @@ const Order = () => {
                         {columnsData.map((column, index) =>
                           visibleColumns[index] && (
                             <td key={index} className="border px-4 py-2">
-                              {order[column] !== null ? order[column]?.toString() : ""}
+                              {order[column] !== null ? (order[column]?).toString() : ""}
                             </td>
                           )
                         )}
