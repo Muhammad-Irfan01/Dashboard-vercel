@@ -34,9 +34,7 @@ const columnsData = [
   "shipping_method",
 ];
 
-interface Order {
-    [key: string]: string | number | null;
-}
+
 
 const Order = () => {
   const [ordrs, setOrdrs] = useState([]);
@@ -374,7 +372,7 @@ const Order = () => {
                         {columnsData.map((column, index) =>
                           visibleColumns[index] && (
                             <td key={index} className="border px-4 py-2">
-                              {order[column] !== null ? order[column]?.toString() : ""}
+                              {order[column] !== null ? (order[column] as string | number).toString() : ""}
                             </td>
                           )
                         )}
