@@ -367,7 +367,7 @@ const Order = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {ordrs.map((order:Order) => (
+                    {ordrs.map((order) => (
                       <tr key={order}>
                         {columnsData.map((column, index) =>
                           visibleColumns[index] && (
