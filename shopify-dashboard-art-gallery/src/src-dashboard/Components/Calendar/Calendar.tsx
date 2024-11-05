@@ -9,7 +9,7 @@ const DateFilterContainer = ({closeHandler}:any) => {
   const [selectedRange, setSelectedRange] = useState("today");
   const [data, setData] = useState<string | null>(null);
   
-  const handleRangeChange = (range) => {
+  const handleRangeChange = (range:number) => {
     setSelectedRange(range);
     const today = new Date();
     switch (range) {
