@@ -101,13 +101,13 @@ const Shipping: React.FC<ShippingProps> = ({ onWeightChange, onWeightUnitChange 
     setIsChecked(!isChecked);
   };
 
-  const handleWeightChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleWeightChange = (event: React.FormEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setWeight(value);
     onWeightChange(value);
   };
 
-  const handleWeightUnitChange = (event) => {
+  const handleWeightUnitChange = (event: React.FormEvent<HTMLSelectElement>) => {
     const unit = event.target.value;
     setWeightUnit(unit);
     onWeightUnitChange(unit);
@@ -317,7 +317,7 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({ selectedCategory, onC
     fetchCategories();
   }, []);
 
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (event: React.FormEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     onCategoryChange(value);
   };
