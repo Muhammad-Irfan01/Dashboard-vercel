@@ -49,8 +49,8 @@ const DynamicTable = () => {
   }, []);
 
   useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (dropdownRf.current && !dropdownRf.current.contains(event.target)) {
         setDropdownOpen(false);
       }
     };
@@ -79,7 +79,7 @@ const DynamicTable = () => {
   return (
     <div className="p-4">
       <div className="flex justify-end">
-        <div className="relative inline-block" ref={dropdownRef}>
+        <div className="relative inline-block" ref={dropdownRf}>
           <button
             className="bg-blue-500 text-white px-4 py-2 rounded focus:outline-none"
             onClick={() => setDropdownOpen(!isDropdownOpen)}
