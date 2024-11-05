@@ -30,7 +30,8 @@ const DynamicTable = () => {
   );
 
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  // const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRf = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -58,7 +59,7 @@ const DynamicTable = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
 
-  const handleCheckboxChange = (index) => {
+  const handleCheckboxChange = (index: number) => {
     const newVisibleColumns = [...visibleColumns];
     
     if (newVisibleColumns[index]) {
