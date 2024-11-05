@@ -50,7 +50,7 @@ const DynamicTable = () => {
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
-      if (dropdownRf.current && !dropdownRf.current.contains(event.target)) {
+      if (dropdownRf.current && !dropdownRf.current.contains(event.target as Node)) {
         setDropdownOpen(false);
       }
     };
