@@ -87,8 +87,12 @@ const TrackQuantity = () => {
     </section>
   );
 };
+interface ShippingProps {
+  onWeightChange: string; // or `number` if IDs are numbers
+  onWeightUnitChange: (categoryId: string) => void;
+}
 
-const Shipping = ({ onWeightChange, onWeightUnitChange }) => {
+const Shipping: React.FC<ShippingProps> = ({ onWeightChange, onWeightUnitChange }) => {
   const [isChecked, setIsChecked] = useState(true);
   const [weight, setWeight] = useState("0.0");
   const [weightUnit, setWeightUnit] = useState("kg");
@@ -97,7 +101,7 @@ const Shipping = ({ onWeightChange, onWeightUnitChange }) => {
     setIsChecked(!isChecked);
   };
 
-  const handleWeightChange = (event) => {
+  const handleWeightChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setWeight(value);
     onWeightChange(value);
@@ -172,8 +176,11 @@ type DropdownItem = {
   id: string;
   label: string;
 };
+type StatusProps = {
+  onStatusChange: (newStatus: string) => void; 
+};
 
-const Status = ({ onStatusChange }) => {
+const Status: React.FC<StatusProps> = ({ onStatusChange }) => {
   const [inputValue, setInputValue] = useState<string>("Active");
   const [selectedItem, setSelectedItem] = useState<string>("active");
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
@@ -280,9 +287,16 @@ const Country = () => {
   )
 };
 
-
-const ProductCategory = ({ selectedCategory, onCategoryChange }) => {
-  const [categories, setCategories] = useState([]);
+interface Category {
+  id: string;    
+  title: string;
+}
+interface ProductCategoryProps {
+  selectedCategory: string; 
+  onCategoryChange: (categoryId: string) => void;
+}
+const ProductCategory: React.FC<ProductCategoryProps> = ({ selectedCategory, onCategoryChange }) => {
+  const [categories, setCategories] =useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -294,7 +308,7 @@ const ProductCategory = ({ selectedCategory, onCategoryChange }) => {
         const data = await response.json();
         setCategories(data);
       } catch (error) {
-        setError(error.message);
+        setError((error as Error).message);
       } finally {
         setLoading(false);
       }
@@ -303,7 +317,7 @@ const ProductCategory = ({ selectedCategory, onCategoryChange }) => {
     fetchCategories();
   }, []);
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     onCategoryChange(value);
   };
@@ -337,19 +351,19 @@ const NewProduct = () => {
   const [weightUnit, setWeightUnit] = useState("kg");
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleCategoryChange = (category) => {
+  const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
   };
 
-  const handleStatusChange = (newStatus) => {
+  const handleStatusChange = (newStatus: string) => {
     setStatus(newStatus);
   };
 
-  const handleWeightChange = (newWeight) => {
+  const handleWeightChange = (newWeight: string) => {
     setWeight(newWeight);
   };
 
-  const handleWeightUnitChange = (newWeightUnit) => {
+  const handleWeightUnitChange = (newWeightUnit: string) => {
     setWeightUnit(newWeightUnit);
   };
 
@@ -427,7 +441,7 @@ const NewProduct = () => {
         console.error('Failed to add product:', errorData);
       }
     } catch (error) {
-      setErrorMessage('Error sending product data: ' + error.message);
+      setErrorMessage('Error sending product data: ' + (error as Error).message);
       console.error('Error sending product data:', error);
     }
   };
