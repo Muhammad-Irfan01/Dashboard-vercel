@@ -43,7 +43,8 @@ const Order = () => {
   );
 
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRf = useRef(null);
+  // const dropdownRf = useRef(null);
+  const dropdownRf = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -62,6 +63,7 @@ const Order = () => {
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
+      
       if (dropdownRf.current && !dropdownRf.current.contains(event.target as Node)) {
         setDropdownOpen(false);
       }
