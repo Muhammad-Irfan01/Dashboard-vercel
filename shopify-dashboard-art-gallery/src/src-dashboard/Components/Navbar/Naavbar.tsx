@@ -30,7 +30,7 @@ const Navbar = () => {
   useOutsideClick({ ref: dropdownRefNavSidebar, handler: () => setIsOpenNavSidebar(false) });
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: React.ChangeEvent<HTMLInputElement>) => {
       if (event.ctrlKey && event.key === "k") {
         event.preventDefault();
         setIsOpenNavDropdown((prev) => !prev);
@@ -166,8 +166,10 @@ const Navbar = () => {
     </section>
   );
 };
-
-const NavInput = ({ onClick }) => {
+interface NavInputProps {
+  onClick: () => void;
+}
+const NavInput: React.FC<NavInputProps> = ({ onClick }) => {
   return (
     <button
       type="button"
