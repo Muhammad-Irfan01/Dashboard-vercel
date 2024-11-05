@@ -56,7 +56,7 @@ const DynamicTable = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
 
-  const handleCheckboxChange = (index) => {
+  const handleCheckboxChange = (index:number) => {
     const newVisibleColumns = [...visibleColumns];
     
     if (newVisibleColumns[index]) {
