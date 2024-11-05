@@ -293,7 +293,7 @@ interface Category {
 }
 interface ProductCategoryProps {
   selectedCategory: string; 
-  onCategoryChange: (categoryId: string) => void;
+  // onCategoryChange: (categoryId: string) => void;
 }
 const ProductCategory: React.FC<ProductCategoryProps> = ({ selectedCategory, onCategoryChange }) => {
   const [categories, setCategories] =useState<Category[]>([]);
@@ -317,7 +317,7 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({ selectedCategory, onC
     fetchCategories();
   }, []);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: MouseEvent) => {
     const value = event.target.value;
     onCategoryChange(value);
   };
@@ -570,7 +570,7 @@ const NewProduct = () => {
         </div>
 
         <div className="bg-white shadow-lg space-y-3 lg:space-y-0 sm:rounded-lg px-4 py-2 border">
-          <Shipping onWeightChange={handleWeightChange} onWeightUnitChange={handleWeightUnitChange} />
+          <Shipping onWeightChange={handleWeightChange} onWeightUnitChange={handleWeightUnitChange} />  
           <div className='border-t flex text-center py-4 space-x-2'>
             <LuPlusCircle onClick={() => setShipping(!shipping)} className='my-0.5 font-bold' />
             <p className='font-semibold text-sm'>Add Customs information</p>
