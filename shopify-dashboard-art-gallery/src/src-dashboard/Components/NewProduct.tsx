@@ -293,7 +293,7 @@ interface Category {
 }
 interface ProductCategoryProps {
   selectedCategory: string; 
-  // onCategoryChange: (categoryId: string) => void;
+  onCategoryChange: (categoryId: string) => void;
 }
 const ProductCategory: React.FC<ProductCategoryProps> = ({ selectedCategory, onCategoryChange }) => {
   const [categories, setCategories] =useState<Category[]>([]);
@@ -317,7 +317,7 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({ selectedCategory, onC
     fetchCategories();
   }, []);
 
-  const handleChange = (event: MouseEvent) => {
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     onCategoryChange(value);
   };
