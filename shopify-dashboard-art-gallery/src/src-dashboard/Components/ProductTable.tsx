@@ -34,7 +34,7 @@ const ProductTable = () => {
   }, []);
 
   useEffect(() => {
-    const handleOutsideClick = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleOutsideClick = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setDropdownOpen(false);
       }
