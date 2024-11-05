@@ -9,7 +9,7 @@ const columnsData = [
   "dimensions", "height", "width", "depth", "seo_title", "seo_description", "url_handle", "template"
 ];
 
-const capitalizeFirstLetter = (string) => {
+const capitalizeFirstLetter = (string: string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
@@ -34,7 +34,7 @@ const ProductTable = () => {
   }, []);
 
   useEffect(() => {
-    const handleOutsideClick = (event) => {
+    const handleOutsideClick = (event: React.ChangeEvent<HTMLInputElement>) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setDropdownOpen(false);
       }
@@ -44,7 +44,7 @@ const ProductTable = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
 
-  const handleCheckboxChange = (index) => {
+  const handleCheckboxChange = (index: number) => {
     const newVisibleColumns = [...visibleColumns];
 
     if (newVisibleColumns[index]) {
