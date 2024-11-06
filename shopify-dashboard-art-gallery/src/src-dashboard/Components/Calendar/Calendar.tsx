@@ -87,7 +87,7 @@ const DateFilterContainer = ({closeHandler}:any) => {
                 selected={getSelectedDate(startDate)}
                 onChange={(date) => date && setStartDate(date)}
                 selectsRange 
-                selectsMultiple
+                
                 className="w-full p-2 border border-gray-300 rounded"
                 inline
                 showMonthDropdown
@@ -102,7 +102,7 @@ const DateFilterContainer = ({closeHandler}:any) => {
                  selected={getSelectedDate(selectedDate)} 
                   onChange={(date) => date && setSelectedDate(date)}
                   selectsRange 
-                  selectsMultiple
+                  
                   className="w-full p-2 border border-gray-300 rounded"
                   inline
                   showMonthDropdown
