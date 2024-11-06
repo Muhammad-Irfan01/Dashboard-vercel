@@ -359,11 +359,11 @@ const NewProduct = () => {
     setStatus(newStatus);
   };
 
-  const handleWeightChange = (newWeight: any) => {
+  const handleWeightChange = (newWeight: string):string => {
     setWeight(newWeight);
   };
 
-  const handleWeightUnitChange = (newWeightUnit: any) => {
+  const handleWeightUnitChange = (newWeightUnit: string):string => {
     setWeightUnit(newWeightUnit);                                                              
   };
 
