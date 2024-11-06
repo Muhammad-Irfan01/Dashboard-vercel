@@ -359,12 +359,12 @@ const NewProduct = () => {
     setStatus(newStatus);
   };
 
-  const handleWeightChange = (newWeight: string) => {
+  const handleWeightChange = (newWeight: any) => {
     setWeight(newWeight);
   };
 
-  const handleWeightUnitChange = (newWeightUnit: string) => {
-    setWeightUnit(newWeightUnit);
+  const handleWeightUnitChange = (newWeightUnit: any) => {
+    setWeightUnit(newWeightUnit);                                                              
   };
 
   const sendProductData = async () => {
