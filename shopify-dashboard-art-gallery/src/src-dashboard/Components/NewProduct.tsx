@@ -88,7 +88,7 @@ const TrackQuantity = () => {
   );
 };
 interface ShippingProps {
-  onWeightChange: string; // or `number` if IDs are numbers
+  onWeightChange: string;
   onWeightUnitChange: (categoryId: string) => void;
 }
 
@@ -317,7 +317,7 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({ selectedCategory, onC
     fetchCategories();
   }, []);
 
-  const handleChange = (event: React.FormEvent<HTMLSelectElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     onCategoryChange(value);
   };
