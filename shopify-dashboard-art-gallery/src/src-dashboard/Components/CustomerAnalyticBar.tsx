@@ -9,7 +9,7 @@ const CustomerAnalyticBar = () => {
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const handleOptionClick = (option:string) => {
+  const handleOptionClick = (option) => {
     setSelectedOption(option);
     setIsOpen(false); 
   };

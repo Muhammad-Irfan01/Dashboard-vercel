@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-
+const getSelectedDate = (date: Date | [Date, Date]): Date => {
+  return Array.isArray(date) ? date[0] : date;
+};
 const DateFilterContainer = ({closeHandler}:any) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [startDate, setStartDate] = useState(new Date(new Date().setMonth(new Date().getMonth() - 1)));
+  const [selectedDate, setSelectedDate] = useState<[Date, Date] | Date>(new Date())
+  const [startDate, setStartDate] = useState<Date | [Date, Date]>(new Date(new Date().setMonth(new Date().getMonth() - 1)));
   const [selectedRange, setSelectedRange] = useState("today");
   const [data, setData] = useState<string | null>(null);
   
-  const handleRangeChange = (range:number) => {
+  const handleRangeChange = (range) => {
     setSelectedRange(range);
     const today = new Date();
     switch (range) {
@@ -31,7 +33,11 @@ const DateFilterContainer = ({closeHandler}:any) => {
   };
 
   const handleShowData = () => {
-    const result = `Displaying data from ${startDate.toDateString()} to ${selectedDate.toDateString()}`;
+    const result = `Displaying data from ${
+          Array.isArray(startDate) ? startDate[0].toDateString() : startDate.toDateString()
+            } to ${
+            Array.isArray(selectedDate) ? selectedDate[0].toDateString() : selectedDate.toDateString()
+          }`;
     console.log("here type", typeof(result));
     
     setData(result);
@@ -78,8 +84,10 @@ const DateFilterContainer = ({closeHandler}:any) => {
             <div className="p-1 m-auto hidden lg:block">
               <h2 className="text-lg font-semibold mb-4 text-black">Select From Date</h2>
               <DatePicker
-                selected={startDate}
+                selected={getSelectedDate(startDate)}
                 onChange={(date) => date && setStartDate(date)}
+                selectsRange 
+                selectsMultiple
                 className="w-full p-2 border border-gray-300 rounded"
                 inline
                 showMonthDropdown
@@ -91,8 +99,10 @@ const DateFilterContainer = ({closeHandler}:any) => {
               <div>
                 <h2 className="text-lg font-semibold mb-4 text-black">Selected Date</h2>
                 <DatePicker
-                  selected={selectedDate}
+                 selected={getSelectedDate(selectedDate)} 
                   onChange={(date) => date && setSelectedDate(date)}
+                  selectsRange 
+                  selectsMultiple
                   className="w-full p-2 border border-gray-300 rounded"
                   inline
                   showMonthDropdown

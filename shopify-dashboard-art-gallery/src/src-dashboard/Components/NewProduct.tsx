@@ -92,7 +92,7 @@ interface ShippingProps {
   onWeightUnitChange: (categoryId: string) => void;
 }
 
-const Shipping: React.FC<ShippingProps> = ({ onWeightChange, onWeightUnitChange }) => {
+const Shipping = ({ onWeightChange, onWeightUnitChange }) => {
   const [isChecked, setIsChecked] = useState(true);
   const [weight, setWeight] = useState("0.0");
   const [weightUnit, setWeightUnit] = useState("kg");
@@ -101,13 +101,13 @@ const Shipping: React.FC<ShippingProps> = ({ onWeightChange, onWeightUnitChange 
     setIsChecked(!isChecked);
   };
 
-  const handleWeightChange = (event: React.FormEvent<HTMLInputElement>) => {
+  const handleWeightChange = (event) => {
     const value = event.target.value;
     setWeight(value);
     onWeightChange(value);
   };
 
-  const handleWeightUnitChange = (event: React.FormEvent<HTMLSelectElement>) => {
+  const handleWeightUnitChange = (event) => {
     const unit = event.target.value;
     setWeightUnit(unit);
     onWeightUnitChange(unit);
@@ -180,7 +180,7 @@ type StatusProps = {
   onStatusChange: (newStatus: string) => void; 
 };
 
-const Status: React.FC<StatusProps> = ({ onStatusChange }) => {
+const Status = ({ onStatusChange }) => {
   const [inputValue, setInputValue] = useState<string>("Active");
   const [selectedItem, setSelectedItem] = useState<string>("active");
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
@@ -295,7 +295,7 @@ interface ProductCategoryProps {
   selectedCategory: string; 
   onCategoryChange: (categoryId: string) => void;
 }
-const ProductCategory: React.FC<ProductCategoryProps> = ({ selectedCategory, onCategoryChange }) => {
+const ProductCategory = ({ selectedCategory, onCategoryChange }) => {
   const [categories, setCategories] =useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -317,7 +317,7 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({ selectedCategory, onC
     fetchCategories();
   }, []);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event) => {
     const value = event.target.value;
     onCategoryChange(value);
   };
@@ -359,11 +359,11 @@ const NewProduct = () => {
     setStatus(newStatus);
   };
 
-  const handleWeightChange = (newWeight) => {
+  const handleWeightChange = (newWeight: string) => {
     setWeight(newWeight);
   };
 
-  const handleWeightUnitChange = (newWeightUnit) => {
+  const handleWeightUnitChange = (newWeightUnit: string) => {
     setWeightUnit(newWeightUnit);                                                              
   };
 

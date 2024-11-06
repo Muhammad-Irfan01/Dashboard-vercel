@@ -46,7 +46,7 @@ const DynamicTable = () => {
   }, []);
 
   useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
+    const handleOutsideClick = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setDropdownOpen(false);
       }
@@ -56,7 +56,7 @@ const DynamicTable = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
 
-  const handleCheckboxChange = (index:number) => {
+  const handleCheckboxChange = (index) => {
     const newVisibleColumns = [...visibleColumns];
     
     if (newVisibleColumns[index]) {
