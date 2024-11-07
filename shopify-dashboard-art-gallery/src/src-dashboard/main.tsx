@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import React from 'react';
 
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById('root')).render(
   <StrictMode>
       <BrowserRouter>
           <AdminApp />
