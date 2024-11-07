@@ -2,6 +2,6 @@
   "rewrites": [
     { "source": "/admin", "destination": "/src/src-dashboard/index.html" },
     { "source": "/admin/*", "destination": "/src/src-dashboard/index.html" },
-    { "source": "/(.*)", "destination": "/src/Art-Gallery/index.html" }
+    { "source": "/(.*)", "destination": "/src/Art-Gallery/src-miguel/index.html" }
   ]
 }
