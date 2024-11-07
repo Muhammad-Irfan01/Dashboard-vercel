@@ -7,14 +7,14 @@ export default defineConfig({
   resolve: {
      alias: {
       '@': path.resolve(__dirname, 'src'),
-      'ArtGallery': path.resolve(__dirname, 'src/Art-Gallery/src-miguel'),
+      'ArtGallery': path.resolve(__dirname, 'src/Art-Gallery'),
       'Dashboard': path.resolve(__dirname, 'src/src-dashboard')
     }
   },
   build: {
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'src/Art-Gallery/src-miguel/index.html'),
+        main: path.resolve(__dirname, 'src/Art-Gallery/index.html'),
         admin: path.resolve(__dirname, 'src/src-dashboard/index.html')
       }
     }
