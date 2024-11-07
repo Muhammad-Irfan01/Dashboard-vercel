@@ -5,10 +5,10 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: {
-      '@': '/src',
-      'ArtGallery': '/src/Art-Gallery/src-miguel',
-      'Dashboard': '/src/src-dashboard'
+     alias: {
+      '@': path.resolve(__dirname, 'src'),
+      'ArtGallery': path.resolve(__dirname, 'src/Art-Gallery/src-miguel'),
+      'Dashboard': path.resolve(__dirname, 'src/src-dashboard')
     }
   },
   build: {
