@@ -13,11 +13,11 @@
   "routes": [
     {
       "src": "/admin/(.*)",
-      "dest": "/src/src-dashboard/$1"
+      "dest": "/src-dashboard/$1" 
     },
     {
       "src": "/(.*)",
-      "dest": "/src/Art-Gallery/$1"
+      "dest": "/Art-Gallery/$1"
     }
   ]
 }
