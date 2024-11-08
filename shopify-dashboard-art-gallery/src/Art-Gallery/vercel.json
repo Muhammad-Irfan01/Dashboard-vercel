@@ -1,6 +1,6 @@
 
 {
   "rewrites": [
-    { "source": "/admin/(.*)", "destination": "https://dashboard-vercel-nm37.vercel.app/$1" }
+    { "source": "/admin/(.*)", "destination": "/src-dashbaord/index.html" }
   ]
 }
