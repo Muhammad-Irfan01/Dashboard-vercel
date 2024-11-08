@@ -1,8 +1,2 @@
-{
-  "rewrites": [
-    { "source": "/admin", "destination": "/src-dashbaord" },
-    { "source": "/admin/*", "destination": "/index.html" },
-    { "source": "/(.*)", "destination": "/Art-Gallery" }
-  ]
-}
+
 
