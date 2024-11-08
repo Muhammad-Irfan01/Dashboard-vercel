@@ -3,11 +3,11 @@
   "builds": [
     {
       "src": "src/Art-Gallery/package.json",
-      "use": "@vercel/react"
+      "use": "@vercel/static-build"
     },
     {
       "src": "src/src-dashboard/package.json",
-      "use": "@vercel/react"
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
